@@ -1,0 +1,6 @@
+services: services.yml
+deploy_config: knife.compose.tpl.yml
+
+urls:
+  Test: <%= @stand[:url] %>/test
+  

@@ -1,0 +1,9 @@
+version: '2'
+services:
+  nginx:
+    build:
+      dockerfile: nginx.Dockerfile
+  data:
+    build:
+      dockerfile: data.Dockerfile
+

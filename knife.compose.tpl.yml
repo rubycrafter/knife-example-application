@@ -1,0 +1,16 @@
+version: '2'
+services:
+  nginx:
+    extends:
+      file: services.yml
+      service: nginx
+    volumes_from:
+      - data
+    depends_on:
+      - data
+
+  data:
+    image: data:<%= @stand.dump[:docker_tag] %>
+    extends:
+      file: services.yml
+      service: data
