@@ -4,13 +4,15 @@ services:
     extends:
       file: services.yml
       service: app
-    image: <%= @stand.project.docker_repo %>_app_<%= @stand.short_reference %>
+    image: <%= @stand.project.docker_repo %>_app:<%= @stand.short_reference %>
     volumes_from:
       - data
     depends_on:
       - data
+    ports:
+      - 10080:80
   data:
-    image: <%= @stand.project.docker_repo %>_data_<%= @stand.short_reference %>
+    image: <%= @stand.project.docker_repo %>_data:<%= @stand.short_reference %>
     extends:
       file: services.yml
       service: data
