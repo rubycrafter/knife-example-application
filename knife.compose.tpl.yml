@@ -1,13 +1,11 @@
 version: '2'
 services:
   nginx:
-    build:
-      dockerfile: nginx.Dockerfile
+    build: nginx
     volumes_from:
       - data
     depends_on:
       - data
 
   data:
-    build:
-      dockerfile: data.Dockerfile
+    build: data
