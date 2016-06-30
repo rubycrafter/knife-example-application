@@ -1,11 +1,14 @@
 version: '2'
 services:
-  nginx:
-    build: nginx
+  app:
+    extends:
+      file: services.yml
+      service: app
     volumes_from:
       - data
     depends_on:
       - data
-
   data:
-    build: data
+    extends:
+      file: services.yml
+      service: data
