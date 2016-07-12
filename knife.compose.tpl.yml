@@ -12,7 +12,6 @@ services:
     ports:
       - 10080:80
   data:
-    image: data:<%= @stand.short_reference %>
     extends:
       file: services.yml
       service: data
