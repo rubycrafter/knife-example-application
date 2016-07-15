@@ -9,8 +9,6 @@ services:
       - data
     depends_on:
       - data
-    ports:
-      - 10080:80
   data:
     extends:
       file: services.yml
