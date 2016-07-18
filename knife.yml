@@ -8,3 +8,11 @@ data_container: 'data'
 code_containers:
   - app
 
+tasks:
+  Приветствие:
+    command: echo 'hello world'
+    container: app
+
+Fail:
+    command: command_that_should_fail
+    container: app
