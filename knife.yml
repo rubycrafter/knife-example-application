@@ -12,7 +12,6 @@ tasks:
   Приветствие:
     command: echo 'hello world'
     container: app
-
-Fail:
+  Fail:
     command: command_that_should_fail
     container: app
