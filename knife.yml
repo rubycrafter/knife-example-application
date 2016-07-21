@@ -16,5 +16,5 @@ tasks:
     command: command_that_should_fail
     container: app
   Долгая задача:
-    command: for i in {1..30}; do echo $i && sleep 1; done
+    command: bash -c 'for i in {1..30}; do echo $i && sleep 1; done'
     container: app
