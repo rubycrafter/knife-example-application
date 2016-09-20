@@ -1,0 +1,7 @@
+{
+  "service": {
+    "name": "data",
+    "tags": ["data"],
+    "port": 5432
+  }
+}
