@@ -15,6 +15,9 @@ RUN \
 # Define mountable directories
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
+ADD config/nginx.json /etc/consul/conf.d/nginx.json
+ENV CONSUL_HOST consul
+
 # Define working directory
 WORKDIR /etc/nginx
 
@@ -24,6 +27,3 @@ CMD ["nginx"]
 # Expose ports
 EXPOSE 80
 EXPOSE 443
-
-ADD config/consul.json /etc/consul/conf.d/nginx.json
-ENV CONSUL_HOST consul
