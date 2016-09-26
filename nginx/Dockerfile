@@ -13,7 +13,7 @@ RUN apt-get update && \
 # Define mountable directories
 VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
-ADD config/nginx.json /etc/consul/conf.d/nginx.json
+ADD nginx/config/nginx.json /etc/consul/conf.d/nginx.json
 ENV CONSUL_HOST consul
 
 # Define working directory
