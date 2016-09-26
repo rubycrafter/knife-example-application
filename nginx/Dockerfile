@@ -4,9 +4,7 @@ FROM devopsftw/baseimage:dev
 ENV TZ=Asia/Yekaterinburg
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN \
-  add-apt-repository -y ppa:nginx/stable && \
-  apt-get update && \
+RUN apt-get update && \
   apt-get install -y nginx && \
   rm -rf /var/lib/apt/lists/* && \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
