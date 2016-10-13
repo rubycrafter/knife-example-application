@@ -1,6 +1,6 @@
 {
   "service": {
-    "name": "tcp",
+    "name": "stand_${SUB_DOMAIN}_tcp",
     "tags": [
       "tcp"
     ],

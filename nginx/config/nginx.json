@@ -1,6 +1,6 @@
 {
   "service": {
-    "name": "nginx",
+    "name": "stand_${SUB_DOMAIN}_nginx",
     "tags": [
       "nginx"
     ],

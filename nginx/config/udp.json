@@ -1,6 +1,6 @@
 {
   "service": {
-    "name": "udp",
+    "name": "stand_${SUB_DOMAIN}_udp",
     "tags": [
       "udp"
     ],
