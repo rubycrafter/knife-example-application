@@ -1,17 +1,13 @@
-FROM devopsftw/baseimage:dev
-
-# YEKT locale
-ENV TZ=Asia/Yekaterinburg
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+FROM abakpress/knife-base
 
 RUN apt-get update && \
   apt-get install -yq --no-install-recommends nginx netcat && \
-  rm -rf /var/lib/apt/lists/* && \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
-  chown -R www-data:www-data /var/lib/nginx
+  chown -R www-data:www-data /var/lib/nginx && \
+  apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Define mountable directories
-VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
+#VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
 ADD nginx/services/nginx.sh /etc/service/nginx/run
 ADD nginx/config/* /etc/consul/conf.d/
@@ -21,11 +17,5 @@ ADD nginx/services/udp.sh /etc/service/udp/run
 
 ENV CONSUL_HOST consul
 
-
-# nginx
-EXPOSE 80
-EXPOSE 443
-# netcat udp
-EXPOSE 3500
-# netcat tcp
-EXPOSE 3600
+# nginx http/https, netcat udp/tcp
+EXPOSE 80 443 3500 3600
