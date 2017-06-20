@@ -9,7 +9,14 @@ services:
       - data
     depends_on:
       - data
+    links:
+      - mail
+
   data:
     extends:
       file: services.yml
       service: data
+
+  mail:
+    mem_limit: 16m
+    image: mailhog/mailhog

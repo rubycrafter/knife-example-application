@@ -6,4 +6,5 @@ services:
   data:
     build:
       dockerfile: data/Dockerfile
-
+  mail:
+    image: mailhog/mailhog
